@@ -1,13 +1,22 @@
 package com.breiner.todoapp.application.service;
 
+import com.breiner.todoapp.application.mapper.TaskMapper;
 import com.breiner.todoapp.domain.dto.request.TaskRequestDto;
 import com.breiner.todoapp.domain.dto.response.TaskResponseDto;
 import com.breiner.todoapp.domain.entity.Task;
-import com.breiner.todoapp.domain.usecase.TaskUseCase;
+import com.breiner.todoapp.domain.repository.ITaskRepository;
+import com.breiner.todoapp.domain.usecase.ITaskUseCase;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public class TaskService implements TaskUseCase {
+@Service
+@RequiredArgsConstructor
+public class ITaskService implements ITaskUseCase {
+
+    private final ITaskRepository iTaskRepository;
+    private final TaskMapper taskMapper;
     @Override
     public List<Task> findAllTasks() {
         return null;

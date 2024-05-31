@@ -6,7 +6,7 @@ import com.breiner.todoapp.domain.entity.Task;
 
 import java.util.List;
 
-public interface TaskUseCase {
+public interface ITaskUseCase {
 
     List<Task> findAllTasks();
 
