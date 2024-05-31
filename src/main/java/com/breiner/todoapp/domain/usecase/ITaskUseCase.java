@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ITaskUseCase {
 
-    List<Task> findAllTasks();
+    List<TaskResponseDto> findAllTasks();
 
     Long findTaskById(Long id);
 
