@@ -2,9 +2,7 @@ package com.breiner.todoapp.domain.entity;
 
 import com.breiner.todoapp.domain.enumeration.Status;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
@@ -21,7 +19,7 @@ public class Task {
     @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "description", nullable = true, length = 500)
+    @Column(name = "description", length = 500)
     private String description;
 
     @Enumerated(EnumType.STRING)
