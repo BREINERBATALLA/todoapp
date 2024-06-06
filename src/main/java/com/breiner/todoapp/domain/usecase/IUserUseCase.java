@@ -9,7 +9,7 @@ public interface IUserUseCase {
 
     UserResponseDto getCurrentLoggedUser();
 
-    UserResponseDto saveAdoptantUser(UserRegisterRequestDto user, String password);
+    UserResponseDto saveUser(UserRegisterRequestDto user, String password);
 
     Optional<User> findByEmail(String email);
 
