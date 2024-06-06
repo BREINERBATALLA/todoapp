@@ -27,7 +27,7 @@ public class TaskController {
                     @ApiResponse(description = "Getting internal server error", responseCode = "500")
             }
     )
-    @GetMapping("/categories")
+    @GetMapping
     public ResponseEntity<List<TaskResponseDto>> findAllTask() {
         return ResponseEntity.ok(taskUseCase.findAllTasks());
     }

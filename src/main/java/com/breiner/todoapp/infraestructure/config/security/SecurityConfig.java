@@ -33,7 +33,14 @@ public class SecurityConfig {
                 csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .requestMatchers("api/v1/linktic/auth/**")
+                .requestMatchers("/api/linktic/v1/auth/**",
+                                "swagger-ui/**",
+                        "/v3/api-docs/**",
+                        "/swagger-ui.html",
+                        "/swagger-resources/**",
+                        "/webjars/**",
+                        "/configuration"
+                                )
                 .permitAll()
                 .anyRequest()
                 .authenticated() //todas las demas (anyRequest) necesitan estar autenticado el user

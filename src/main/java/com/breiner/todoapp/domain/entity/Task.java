@@ -26,6 +26,9 @@ public class Task {
     @Column(nullable = false)
     private Status state;
 
+    @Column(name = "user_id", nullable = false)
+    private Long userId;
+
     public Task() {
         this.state = Status.PENDING;
     }

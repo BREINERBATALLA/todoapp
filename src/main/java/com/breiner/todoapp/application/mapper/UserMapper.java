@@ -14,8 +14,7 @@ public interface UserMapper {
     @Mappings({
             @Mapping(target = "password", ignore = true),
             @Mapping(target = "role", ignore = true),
-            @Mapping(source = "address", target = "address"),
-            @Mapping(target = "idUser", ignore = true ),
+            @Mapping(target = "id", ignore = true ),
             @Mapping(target = "authorities", ignore = true )
 
 

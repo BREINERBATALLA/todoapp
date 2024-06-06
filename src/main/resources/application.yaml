@@ -6,8 +6,15 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     properties:
       hibernate:
         show_sql: true
         format_sql: true
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+jwt:
+  secretKey: ZwxNFYDMsBEEixem1Ec6hWYTrG1q2IDKx8bMV2HgsKtcxtPssGLq9+d8QYyEdL2HWRdaCEsfijcXrtmevaId9r2KRUuLbbvIDSmf23ffTjOzKhDXMyOCtOxQKmLIRsLbNeL8ySDfgiuv30Q90C8tIHrk9/qI/e96u0+0Ir3IEgBqlHp+Y3etOjZiMj46FeqKrEtg1ioJGL5xvhHlP5bGNYVnQCcY4zXOwGZLm5dF+cjjKPBDWSlZ4jKgDOVaslWsHwKR2B6LWwWvSmjo9J5vYkCovwXJSGxK9FN0QV3AsQyorz9ewteVNv8jXuQg5hJUqAziZ1evEBaRy2cV4XgDq5H5Xu4QQElwktBqXkvv6qQ=

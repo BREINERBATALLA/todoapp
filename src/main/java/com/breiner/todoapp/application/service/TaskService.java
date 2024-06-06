@@ -19,10 +19,12 @@ public class TaskService implements ITaskUseCase {
 
     private final ITaskRepository taskRepository;
     private final TaskMapper taskMapper;
+    private final UserService userService;
 
     @Override
     public List<TaskResponseDto> findAllTasks() {
-        return taskRepository.findAll()
+        Long userId = userService.getCurrentLoggedUser().id();
+        return taskRepository.findAllByUserId(userId)
                 .stream()
                 .map(taskMapper::toTaskResponseDto)
                 .collect(Collectors.toList());
@@ -45,8 +47,9 @@ public class TaskService implements ITaskUseCase {
 
     @Override
     public TaskResponseDto createTask(TaskRequestDto taskRequestDto) {
-        Task savedTask = taskRepository.save(taskMapper.toTask(taskRequestDto));
-        return taskMapper.toTaskResponseDto(savedTask);
+        Task task = taskMapper.toTask(taskRequestDto);
+        task.setUserId(userService.getCurrentLoggedUser().id());
+        return taskMapper.toTaskResponseDto(taskRepository.save(task));
     }
 
     public TaskResponseDto updateTask(Long id, TaskRequestDto taskRequestDto) {

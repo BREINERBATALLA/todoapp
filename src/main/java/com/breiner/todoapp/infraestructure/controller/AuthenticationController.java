@@ -14,14 +14,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
-@RestController
+
 @RequiredArgsConstructor
+@RestController
 @RequestMapping("api/linktic/v1/auth")
 public class AuthenticationController {
 
     private final IAuthenticationUseCase authenticationUseCase;
 
+    @Operation(
+            summary = "Register a new user",
+            description = "Registers a new user and returns the user details",
+            responses = {
+                    @ApiResponse(responseCode = "201", description = "User created successfully"),
+                    @ApiResponse(responseCode = "400", description = "Invalid request data")
+            }
+    )
     @PostMapping(path = "/register")
     public ResponseEntity<UserRegisterResponseDto> register(
             @RequestBody @Valid UserRegisterRequestDto userRegisterDTO
@@ -30,7 +41,14 @@ public class AuthenticationController {
                 .body(authenticationUseCase.userRegister(userRegisterDTO));
     }
 
-
+    @Operation(
+            summary = "Sign in an existing user",
+            description = "Authenticates a user and returns a JWT token",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "User authenticated successfully"),
+                    @ApiResponse(responseCode = "400", description = "Invalid credentials")
+            }
+    )
     @PostMapping(path = "/sign-in")
     public ResponseEntity<JwtResponseDto> signIn(
             @RequestBody @Valid UserRequestAuthDto authUserDto
@@ -38,3 +56,4 @@ public class AuthenticationController {
         return ResponseEntity.ok(authenticationUseCase.singIn(authUserDto));
     }
 }
+
