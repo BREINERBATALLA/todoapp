@@ -1,4 +1,12 @@
 package com.breiner.todoapp.domain.dto.response;
 
-public record UserRegisterResponseDto(String password) {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserRegisterResponseDto {
+    private String password;
 }

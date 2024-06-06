@@ -14,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("api/linktic/v1/tasks")
+@CrossOrigin
 public class TaskController {
 
 

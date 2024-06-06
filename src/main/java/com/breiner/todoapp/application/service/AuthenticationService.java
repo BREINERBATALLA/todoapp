@@ -4,6 +4,7 @@ import com.breiner.todoapp.domain.dto.request.UserRegisterRequestDto;
 import com.breiner.todoapp.domain.dto.request.UserRequestAuthDto;
 import com.breiner.todoapp.domain.dto.response.JwtResponseDto;
 import com.breiner.todoapp.domain.dto.response.UserRegisterResponseDto;
+import com.breiner.todoapp.domain.entity.User;
 import com.breiner.todoapp.domain.usecase.IAuthenticationUseCase;
 import com.breiner.todoapp.domain.usecase.IUserUseCase;
 import com.breiner.todoapp.infraestructure.config.security.JwtService;
@@ -35,12 +36,12 @@ public class AuthenticationService implements IAuthenticationUseCase {
     public JwtResponseDto singIn(UserRequestAuthDto authUserDto) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        authUserDto.email(), authUserDto.password()
+                        authUserDto.getEmail(), authUserDto.getPassword()
                 )
         );
-        var user = userService.findByEmail(authUserDto.email())
-                .orElseThrow( ()-> new UserNotFoundException("User with email: "+authUserDto.email()+ "not found"));
-        var jwtToken = jwtService.generateToken(user);
+        User user = userService.findByEmail(authUserDto.getEmail())
+                .orElseThrow( ()-> new UserNotFoundException("User with email: "+authUserDto.getEmail()+ "not found"));
+        String jwtToken = jwtService.generateToken(user);
         return new JwtResponseDto(jwtToken);
     }
 

@@ -1,4 +1,10 @@
 package com.breiner.todoapp.domain.dto.response;
 
-public record JwtResponseDto(String jwt) {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+public class JwtResponseDto {
+    private String jwt;
 }

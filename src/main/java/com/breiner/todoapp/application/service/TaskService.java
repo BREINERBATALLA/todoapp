@@ -23,7 +23,7 @@ public class TaskService implements ITaskUseCase {
 
     @Override
     public List<TaskResponseDto> findAllTasks() {
-        Long userId = userService.getCurrentLoggedUser().id();
+        Long userId = userService.getCurrentLoggedUser().getId();
         return taskRepository.findAllByUserId(userId)
                 .stream()
                 .map(taskMapper::toTaskResponseDto)
@@ -48,15 +48,15 @@ public class TaskService implements ITaskUseCase {
     @Override
     public TaskResponseDto createTask(TaskRequestDto taskRequestDto) {
         Task task = taskMapper.toTask(taskRequestDto);
-        task.setUserId(userService.getCurrentLoggedUser().id());
+        task.setUserId(userService.getCurrentLoggedUser().getId());
         return taskMapper.toTaskResponseDto(taskRepository.save(task));
     }
 
     public TaskResponseDto updateTask(Long id, TaskRequestDto taskRequestDto) {
         return taskRepository.findById(id)
                 .map(task -> {
-                        task.setTitle(taskRequestDto.title());
-                        task.setDescription(taskRequestDto.description());
+                        task.setTitle(taskRequestDto.getTitle());
+                        task.setDescription(taskRequestDto.getDescription());
                     return taskMapper.toTaskResponseDto(taskRepository.save(task));
                 })
                 .orElseThrow(() -> new TaskNotFoundException("Task not found with id " + id));

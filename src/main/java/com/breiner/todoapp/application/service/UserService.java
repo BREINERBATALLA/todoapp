@@ -32,7 +32,7 @@ public class UserService implements IUserUseCase {
 
     @Override
     public UserResponseDto saveUser(UserRegisterRequestDto userDto, String password) {
-        String email = userDto.email();
+        String email = userDto.getEmail();
         if (findByEmail(email).isPresent()) {
             throw new UserAlreadyExistsException("User with"+ email + "already exists");
         }

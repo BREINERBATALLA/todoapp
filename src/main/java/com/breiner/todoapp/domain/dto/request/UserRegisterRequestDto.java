@@ -1,4 +1,14 @@
 package com.breiner.todoapp.domain.dto.request;
 
-public record UserRegisterRequestDto( String email,
-                              String firstName, String lastName) { }
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserRegisterRequestDto {
+    private String email;
+    private String firstName;
+    private String lastName;
+}

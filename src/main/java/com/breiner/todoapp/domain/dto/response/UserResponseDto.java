@@ -1,14 +1,20 @@
 package com.breiner.todoapp.domain.dto.response;
 
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public record UserResponseDto(
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserResponseDto {
+        private Long id;
 
-        Long id,
         @Email(message = "El formato de email no es válido")
-        String email,
+        private String email;
 
-        String firstName,
+        private String firstName;
+        private String lastName;
+}
 
-        String lastName) {}

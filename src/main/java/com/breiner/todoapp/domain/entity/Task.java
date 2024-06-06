@@ -1,9 +1,10 @@
 package com.breiner.todoapp.domain.entity;
 
 import com.breiner.todoapp.domain.enumeration.Status;
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "task")
