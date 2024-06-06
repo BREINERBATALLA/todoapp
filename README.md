@@ -24,7 +24,9 @@ Para registrar un nuevo usuario, utiliza el siguiente endpoint:
 - **Cuerpo de la solicitud:** JSON con los datos del usuario a registrar (revisa doc/Documentación)
 
 ## Documentación de Endpoints
-
+Puedes revisar en doc/ la collections de los api request en postman, para que puedas hacer las peticiones, recuerda la url base y los métodos http.
+Para el registro y login Http:POST, ya que postman en las colecciones no los actualiza
+Así mismo para acutualizar PUT, eliminar DELETE 
 Puedes encontrar la documentación detallada de los endpoints en la carpeta `doc/` de este repositorio. La documentación incluye descripciones de los endpoints, sus parámetros y ejemplos de uso.
 
 Por favor, consulta la documentación para obtener más información sobre cómo utilizar los endpoints disponibles.
