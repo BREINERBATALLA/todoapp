@@ -13,7 +13,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("linktic/v1/tasks")
+@RequestMapping("api/linktic/v1/tasks")
 public class TaskController {
 
 
