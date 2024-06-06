@@ -12,16 +12,67 @@
 				{
 					"name": "user register",
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"user7@example.com\",\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://34.207.93.122:8080/api/linktic/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"34",
+								"207",
+								"93",
+								"122"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"linktic",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "login",
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"user2@example.com\",\r\n  \"password\": \"KJgh378h2b\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/linktic/v1/auth/sign-in",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"linktic",
+								"v1",
+								"auth",
+								"sign-in"
+							]
+						}
 					},
 					"response": []
 				}
@@ -33,32 +84,150 @@
 				{
 					"name": "create task",
 					"request": {
-						"method": "GET",
-						"header": []
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMkBleGFtcGxlLmNvbSIsImlhdCI6MTcxNzY4Nzk5MCwiZXhwIjoxNzE3Njg5NDMwfQ.n6I-ZBSzhLEfa4qWopHceL-KyU0rCQFWbTmrV-Tya0s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"New Task\",\r\n  \"description\": \"Task description\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "ec2-34-207-93-122.compute-1.amazonaws.com:8080/api/linktic/v1/tasks",
+							"host": [
+								"ec2-34-207-93-122",
+								"compute-1",
+								"amazonaws",
+								"com"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"linktic",
+								"v1",
+								"tasks"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "find all task by user logged",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMkBleGFtcGxlLmNvbSIsImlhdCI6MTcxNzY4Nzk5MCwiZXhwIjoxNzE3Njg5NDMwfQ.n6I-ZBSzhLEfa4qWopHceL-KyU0rCQFWbTmrV-Tya0s",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/linktic/v1/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"linktic",
+								"v1",
+								"tasks"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "update task by id",
 					"request": {
-						"method": "GET",
-						"header": []
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMkBleGFtcGxlLmNvbSIsImlhdCI6MTcxNzY4Nzk5MCwiZXhwIjoxNzE3Njg5NDMwfQ.n6I-ZBSzhLEfa4qWopHceL-KyU0rCQFWbTmrV-Tya0s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Updated Task\",\r\n  \"description\": \"Updated description\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/linktic/v1/tasks/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"linktic",
+								"v1",
+								"tasks",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "delete task by id",
 					"request": {
-						"method": "GET",
-						"header": []
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMkBleGFtcGxlLmNvbSIsImlhdCI6MTcxNzY4Nzk5MCwiZXhwIjoxNzE3Njg5NDMwfQ.n6I-ZBSzhLEfa4qWopHceL-KyU0rCQFWbTmrV-Tya0s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/linktic/v1/tasks/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"linktic",
+								"v1",
+								"tasks",
+								"1"
+							]
+						}
 					},
 					"response": []
 				}
