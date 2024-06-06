@@ -4,7 +4,7 @@ import com.breiner.todoapp.domain.dto.request.UserRegisterRequestDto;
 import com.breiner.todoapp.domain.dto.request.UserRequestAuthDto;
 import com.breiner.todoapp.domain.dto.response.JwtResponseDto;
 import com.breiner.todoapp.domain.dto.response.UserRegisterResponseDto;
-import com.breiner.todoapp.domain.usecase.IAuthenticationService;
+import com.breiner.todoapp.domain.usecase.IAuthenticationUseCase;
 import com.breiner.todoapp.domain.usecase.IUserUseCase;
 import com.breiner.todoapp.infraestructure.config.security.JwtService;
 import com.breiner.todoapp.infraestructure.exception.UserNotFoundException;
@@ -17,7 +17,7 @@ import java.security.SecureRandom;
 
 @Service
 @RequiredArgsConstructor
-public class AuthenticationService implements IAuthenticationService {
+public class AuthenticationService implements IAuthenticationUseCase {
 
     private final IUserUseCase userService;
     private final PasswordEncoder passwordEncoder;

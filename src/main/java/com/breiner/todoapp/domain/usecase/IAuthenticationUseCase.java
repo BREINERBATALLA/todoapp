@@ -5,7 +5,7 @@ import com.breiner.todoapp.domain.dto.request.UserRequestAuthDto;
 import com.breiner.todoapp.domain.dto.response.JwtResponseDto;
 import com.breiner.todoapp.domain.dto.response.UserRegisterResponseDto;
 
-public interface IAuthenticationService {
+public interface IAuthenticationUseCase{
 
     UserRegisterResponseDto userRegister (UserRegisterRequestDto user);
 
